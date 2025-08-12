@@ -14,6 +14,7 @@ El Sistema de Auditoría Nocturna es una herramienta digital diseñada para opti
 ## ✨ Características Principales
 
 ### 🎯 Gestión Completa del Proceso
+
 - **Preparación inicial** con temporizador crítico para el cierre del Verifón
 - **Verificación de check-outs** con validación de pagos y facturas
 - **Procesamiento de check-ins** con control de tarifas y documentación
@@ -21,23 +22,27 @@ El Sistema de Auditoría Nocturna es una herramienta digital diseñada para opti
 - **Generación de reportes** para contabilidad y ama de llaves
 
 ### 💾 Almacenamiento Persistente
+
 - **LocalStorage integrado** para mantener datos entre sesiones
 - **Auto-numeración** progresiva de facturas (Factura 1, 2, 3...)
 - **Recuperación automática** de datos al reiniciar la aplicación
 - **Funcionalidad de limpieza** con confirmación de seguridad
 
 ### 📊 Sistema de Facturas Avanzado
+
 - **Categorización automática**: Comida, Bebidas, Tienda
 - **Separación por turnos**: Día (7/3) y Noche (3/11)
 - **Tipos de pago**: Efectivo y Tarjeta de Crédito
 - **Resúmenes en tiempo real** con totales por categoría
 
 ### ⏰ Temporizador Crítico
+
 - **Countdown en tiempo real** hasta el cierre del Verifón (11:55 PM)
 - **Alertas urgentes** cuando quedan menos de 30 minutos
 - **Visualización clara** de horas, minutos y segundos restantes
 
 ### 📈 Seguimiento de Progreso
+
 - **Barra de progreso** general del proceso de auditoría
 - **Progreso por categorías** con porcentajes individuales
 - **Marcado de pasos completados** con confirmación visual
@@ -46,6 +51,7 @@ El Sistema de Auditoría Nocturna es una herramienta digital diseñada para opti
 ## 🚀 Instalación y Configuración
 
 ### Requisitos Previos
+
 - Node.js (versión 18 o superior)
 - npm o yarn
 
@@ -92,6 +98,7 @@ La aplicación está organizada en pestañas principales:
 ### Gestión de Facturas
 
 #### Agregar Nueva Factura
+
 1. La descripción se auto-completa con "Factura X"
 2. Insertar el monto (campo vacío para fácil escritura)
 3. Seleccionar categoría: Comida, Bebidas o Tienda
@@ -100,6 +107,7 @@ La aplicación está organizada en pestañas principales:
 6. Hacer clic en "Agregar Factura"
 
 #### Resumen Automático
+
 - **Totales por categoría** separados por turno y tipo de pago
 - **Cálculos en tiempo real** que se actualizan automáticamente
 - **Desglose detallado** para facilitar el proceso de auditoría
@@ -107,12 +115,14 @@ La aplicación está organizada en pestañas principales:
 ## 🛠️ Tecnologías Utilizadas
 
 ### Frontend
+
 - **React 18.3.1** - Biblioteca de interfaz de usuario
 - **TypeScript 5.6.2** - Tipado estático para JavaScript
 - **Tailwind CSS 3.4.14** - Framework de CSS utilitario
 - **Lucide React** - Iconografía moderna y consistente
 
 ### Herramientas de Desarrollo
+
 - **Vite 5.4.19** - Herramienta de construcción rápida
 - **ESLint** - Linting de código
 - **PostCSS** - Procesamiento de CSS
@@ -120,7 +130,7 @@ La aplicación está organizada en pestañas principales:
 
 ## 🏗️ Estructura del Proyecto
 
-```
+```text
 src/
 ├── components/          # Componentes reutilizables
 │   ├── AdvancedAnalytics.tsx
@@ -135,21 +145,25 @@ src/
 ## 📋 Proceso de Auditoría Detallado
 
 ### Fase 1: Preparación
+
 - Adecuar área de trabajo para papeles de auditoría
 - **CRÍTICO**: Cierre del Verifón antes de las 11:55 PM
 
 ### Fase 2: Check-Outs
+
 - Verificación en Hotello → Departures
 - Validación de montos, números de aprobación y tipos de tarjeta
 - Revisión de facturas físicas vs. cargadas al sistema
 - Procesamiento de propinas del restaurante
 
 ### Fase 3: Check-Ins
+
 - Revisión en Hotello → In-House
 - Verificación de pagos y tarifas
 - Organización de documentos por categorías
 
 ### Fase 4: Desgloses y Folios
+
 - Separación manual de ventas por categoría y tipo de pago
 - Creación de folios específicos:
   - Beach Club 107 (comida del bar)
@@ -157,6 +171,7 @@ src/
   - Gift Shop 901 (tienda)
 
 ### Fase 5: Reportes Finales
+
 - Generación de documentos para contabilidad
 - Impresión de reportes para ama de llaves
 - Organización final de documentación
@@ -164,6 +179,7 @@ src/
 ## 🔧 Configuración Personalizada
 
 ### Variables de Entorno
+
 ```env
 # Ejemplo de configuración (si se requiere)
 VITE_APP_TITLE=Sistema de Auditoría Nocturna
@@ -172,6 +188,7 @@ VITE_DEADLINE_MINUTE=55
 ```
 
 ### Personalización de Horarios
+
 El temporizador está configurado para el cierre a las 11:55 PM, pero puede modificarse en el código según las necesidades del establecimiento.
 
 ## 🤝 Contribución
@@ -191,12 +208,14 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 ## 📞 Soporte
 
 Para soporte técnico o consultas:
+
 - **Repository**: [GitHub](https://github.com/EnmanuelReynoso23/Sistema-de-auditoria-nocturna)
 - **Issues**: Reportar problemas en GitHub Issues
 
 ## 🔄 Changelog
 
 ### v1.0.0
+
 - Implementación inicial del sistema completo
 - Sistema de facturas con auto-numeración
 - Almacenamiento persistente con LocalStorage
