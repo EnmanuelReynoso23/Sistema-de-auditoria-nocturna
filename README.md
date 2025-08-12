@@ -1,96 +1,209 @@
+# Sistema de Auditoría Nocturna
 
-**Proceso de Auditoria *Adecuar área donde colocar los papeles de la auditoria.**
+Una aplicación web completa para la gestión y seguimiento del proceso de auditoría nocturna en hoteles, desarrollada con React, TypeScript y Tailwind CSS.
 
-***HACER EL CIERRE DEL VERIFON ANTES DE LAS 12 DE LA MEDIA NOCHE, 11:55PM**
+![Sistema de Auditoría Nocturna](https://img.shields.io/badge/Version-1.0.0-blue)
+![React](https://img.shields.io/badge/React-18.3.1-61DAFB?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.6.2-3178C6?logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.14-38B2AC?logo=tailwind-css)
 
-***CHEQUEO FOLDER DE LOS CHECK OUTS:**
+## 📋 Descripción
 
-**IR A HOTELLO, ESTA UBICADO EN EL PRIMER ICONO DE HOTELLO,ELEGIR DEPARTURES Y QUE ME MUESTRE LOS CHECK OUT,**
+El Sistema de Auditoría Nocturna es una herramienta digital diseñada para optimizar y estandarizar el proceso de auditoría en establecimientos hoteleros. La aplicación guía paso a paso a través de todos los procedimientos necesarios, desde la preparación inicial hasta la generación de reportes finales.
 
-***pago:**
+## ✨ Características Principales
 
-***Que el monto cobrado sea el mismo adeudado,**
+### 🎯 Gestión Completa del Proceso
+- **Preparación inicial** con temporizador crítico para el cierre del Verifón
+- **Verificación de check-outs** con validación de pagos y facturas
+- **Procesamiento de check-ins** con control de tarifas y documentación
+- **Desgloses automatizados** de ventas por categorías y turnos
+- **Generación de reportes** para contabilidad y ama de llaves
 
-***Que el número de aprobación sea el mismo,**
+### 💾 Almacenamiento Persistente
+- **LocalStorage integrado** para mantener datos entre sesiones
+- **Auto-numeración** progresiva de facturas (Factura 1, 2, 3...)
+- **Recuperación automática** de datos al reiniciar la aplicación
+- **Funcionalidad de limpieza** con confirmación de seguridad
 
-***Que el tipo de la tarjeta del pago sea la misma,(si en el sistema dice visa que el volante de pago diga visa),**
+### 📊 Sistema de Facturas Avanzado
+- **Categorización automática**: Comida, Bebidas, Tienda
+- **Separación por turnos**: Día (7/3) y Noche (3/11)
+- **Tipos de pago**: Efectivo y Tarjeta de Crédito
+- **Resúmenes en tiempo real** con totales por categoría
 
-***Chequeo de las facturas que fueron cobradas, para confirmar lo físico con lo cargado a la habitación, si alguna no fue cargada, notificar al supervisor de turno,**
+### ⏰ Temporizador Crítico
+- **Countdown en tiempo real** hasta el cierre del Verifón (11:55 PM)
+- **Alertas urgentes** cuando quedan menos de 30 minutos
+- **Visualización clara** de horas, minutos y segundos restantes
 
-***CHEQUEO FOLDER TRABAJO DEL DIA:**
+### 📈 Seguimiento de Progreso
+- **Barra de progreso** general del proceso de auditoría
+- **Progreso por categorías** con porcentajes individuales
+- **Marcado de pasos completados** con confirmación visual
+- **Estado visual** diferenciado para tareas pendientes y completadas
 
-***Ver si hay factura de proveedores, además anexar las comandas del restaurante, seguir archivando encima de los check outs ya chequeados,**
+## 🚀 Instalación y Configuración
 
-***Verificar las facturas que fueron cargadas a hotello, del restaurante, la tienda, limpieza de habitaciones, cargos de lavandería, etc.,,Estos deben de ser grapados en la tarjeta de registro correspondiente,**
+### Requisitos Previos
+- Node.js (versión 18 o superior)
+- npm o yarn
 
-***Verificar si hay propina firmada del restaurante, ya las copias deberían estar hechas, pero, verificar en las remesas del restaurante,(CONFIRMAR) hacer un sub folio 908 ,insertar un cargo con un solo monto de las propinas ya sumadas, llevarlas a dólares y luego proceder a los pagos uno por uno según el monto de propina de cada Boucher, agregar a trabajo del día,**
+### Instalación
 
-***VERIFICAR LOS CHECK IN,**
+```bash
+# Clonar el repositorio
+git clone https://github.com/EnmanuelReynoso23/Sistema-de-auditoria-nocturna.git
 
-**IR A HOTELLO,PRIMER ICONO Y ELEGIR IN-HOUSE,ORGANIZAR POR EL ORDEN QUE ESTAN EN HOTELLO,**
+# Navegar al directorio del proyecto
+cd Sistema-de-auditoria-nocturna
 
-***Verificar pago, #de aprobación, tipo de tarjeta, monto cobrado. En caso de arreglarlo,**
+# Instalar dependencias
+npm install
 
-**Si se cobro de menos insertar el monto que se cobro, el que dice en el Boucher de pago y notificarlo al supervisor de turno a quien hizo el error o a quien le entrega el turno,**
+# Iniciar el servidor de desarrollo
+npm run dev
+```
 
-**Verificar la tarifa que está cargando,(IR A CHANGE) que sea la misma que dice el sistema y el soporte de la compañía que hicieron la reserva y si es directo también,**
+### Construcción para Producción
 
-***Al verificar un check in acumulamos separados los:**
+```bash
+# Generar build de producción
+npm run build
 
-**Boucher de Pagos, después de acumulados estos irán grapados con el cierre del verifon, ordenados y cotejados como que si se revisaron,**
+# Vista previa del build
+npm run preview
+```
 
-**La hoja impresa de hotello del pago de la habitación, estas después de acumuladas irán todas grapadas y colocadas en el trabajo de la auditoria,**
+## 📱 Uso de la Aplicación
 
-**Y las tarjetas de registro que luego de revisadas serán archivadas en el pin de habitaciones en casa, las facturas verificadas de cargos a las habitaciones también deben ser grapadas en la tarjeta de registro,**
+### Navegación Principal
 
-***DESGLOSE DE LA COMIDA Y BEBIDA DEL RESTAURANTE,7/3--------- Y------- 3/11**
+La aplicación está organizada en pestañas principales:
 
-**Separar la comida y la bebida de las ventas en EFECTIVO Y POR TARJETA DE CREDITO Manualmente y debe de cuadrarnos exactamente con el cuadre de ese mismo turno del restaurante,,,,,,,,,**
+1. **📋 Preparación** - Configuración inicial y cierre del Verifón
+2. **✅ Check-Outs** - Verificación de salidas y pagos
+3. **🏨 Check-Ins** - Procesamiento de entradas
+4. **📊 Desgloses & Folios** - Creación de folios y cálculos
+5. **🧾 Facturas** - Gestión de facturas con auto-numeración
+6. **🖨️ Reportes** - Generación de documentos finales
+7. **⏰ Temporizador** - Control de tiempo crítico
 
-**Ojo, estos procesos se deben trabajar los 2 turnos por separado ya que hay que colocar las ventas por separado en la hoja de cálculo que usamos,**
+### Gestión de Facturas
 
-**Anotar la venta en efectivo de cada turno y sumarlas para confirmar que al insertar el pago cash al final de cada folio sea el que en realidad tengo**
+#### Agregar Nueva Factura
+1. La descripción se auto-completa con "Factura X"
+2. Insertar el monto (campo vacío para fácil escritura)
+3. Seleccionar categoría: Comida, Bebidas o Tienda
+4. Elegir turno: Día (7/3) o Noche (3/11)
+5. Especificar tipo de pago: Efectivo o Tarjeta
+6. Hacer clic en "Agregar Factura"
 
-**Las ventas de la tienda, extraer el efectivo y si hay pagos con tarjeta también (sumarlos)**
+#### Resumen Automático
+- **Totales por categoría** separados por turno y tipo de pago
+- **Cálculos en tiempo real** que se actualizan automáticamente
+- **Desglose detallado** para facilitar el proceso de auditoría
 
-**Luego de que ya tengo los 3 desgloses, los coloco en la hoja de cálculo, para crear la hoja de cálculo ir a Excel y en la esquina superior izquierda está el icono y elegir hoja de cálculo.**
+## 🛠️ Tecnologías Utilizadas
 
-**Crear folio beach club 107, insertar el cargo de la comida del bar (esta en la hoja de cálculo en negrita),y proceder a insertar los pagos con tarjetas de las ventas (DEL RESTAURANTE) utilizando los pagos de tarjeta del día y de la noche, el balance en rojo mas el de la bebida(en pesos) debe de ser el monto que adquirimos de las 2 ventas del restaurante( osea el cash)**
+### Frontend
+- **React 18.3.1** - Biblioteca de interfaz de usuario
+- **TypeScript 5.6.2** - Tipado estático para JavaScript
+- **Tailwind CSS 3.4.14** - Framework de CSS utilitario
+- **Lucide React** - Iconografía moderna y consistente
 
-**Crear folio bar beverages 109 insertar el cargo de bebidas y el pago correspondiente,**
+### Herramientas de Desarrollo
+- **Vite 5.4.19** - Herramienta de construcción rápida
+- **ESLint** - Linting de código
+- **PostCSS** - Procesamiento de CSS
+- **Autoprefixer** - Prefijos automáticos de CSS
 
-**Después de haber insertado los pagos con tarjeta el monto farfante debe de ser el mismo de las 2 ventas cash del día y la noche que ya sume,**
+## 🏗️ Estructura del Proyecto
 
-**Crear folio 901 gift shop, insertar el cargo y luego el pago correspondiente, (hay que pagar primero con tarjeta si tenemos) para hacer la remesa de la tienda se debe imprimir en el icono #9,ir abajo, deshacer todo, elijo payment, refresh y luego print,**
+```
+src/
+├── components/          # Componentes reutilizables
+│   ├── AdvancedAnalytics.tsx
+│   ├── DataExport.tsx
+│   └── PrintableReports.tsx
+├── App.tsx             # Componente principal
+├── main.tsx            # Punto de entrada
+├── index.css           # Estilos globales
+└── vite-env.d.ts       # Definiciones de tipos para Vite
+```
 
-**Grapamos el sobre de la remesa con las facturas y el papel del icono #9 y lo asentamos en el folder de las remesas,**
+## 📋 Proceso de Auditoría Detallado
 
-**CIERRE DEL DIA,ICONO LUNA**
+### Fase 1: Preparación
+- Adecuar área de trabajo para papeles de auditoría
+- **CRÍTICO**: Cierre del Verifón antes de las 11:55 PM
 
-**Icono reports list**
+### Fase 2: Check-Outs
+- Verificación en Hotello → Departures
+- Validación de montos, números de aprobación y tipos de tarjeta
+- Revisión de facturas físicas vs. cargadas al sistema
+- Procesamiento de propinas del restaurante
 
-**Ojo todo se imprime del día (fecha) que se está trabajando la auditoria**
+### Fase 3: Check-Ins
+- Revisión en Hotello → In-House
+- Verificación de pagos y tarifas
+- Organización de documentos por categorías
 
-**Papeles para contabilidad**
+### Fase 4: Desgloses y Folios
+- Separación manual de ventas por categoría y tipo de pago
+- Creación de folios específicos:
+  - Beach Club 107 (comida del bar)
+  - Bar Beverages 109 (bebidas)
+  - Gift Shop 901 (tienda)
 
-***Ir a marketing e imprimir: rate code statistics.**
+### Fase 5: Reportes Finales
+- Generación de documentos para contabilidad
+- Impresión de reportes para ama de llaves
+- Organización final de documentación
 
-***ir a folio balances, abrir y solo dejar cotejo a in house e imprimir.**
+## 🔧 Configuración Personalizada
 
-***ir a transactions journal e imprimir: SUMMARY BY GENERAL LEDGER Y TRANSACTIONS JOURNAL DETAILS BY GL**
+### Variables de Entorno
+```env
+# Ejemplo de configuración (si se requiere)
+VITE_APP_TITLE=Sistema de Auditoría Nocturna
+VITE_DEADLINE_HOUR=23
+VITE_DEADLINE_MINUTE=55
+```
 
-**Papeles para ama de llave**
+### Personalización de Horarios
+El temporizador está configurado para el cierre a las 11:55 PM, pero puede modificarse en el código según las necesidades del establecimiento.
 
-***IR a reservations e imprimir,**
+## 🤝 Contribución
 
-***arrivals imp.,-**
+Las contribuciones son bienvenidas. Para contribuir:
 
-***in house guest,( elegir room)imp.,-**
+1. Fork del repositorio
+2. Crear una rama para la nueva funcionalidad (`git checkout -b feature/nueva-funcionalidad`)
+3. Commit de los cambios (`git commit -m 'Agregar nueva funcionalidad'`)
+4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
+5. Abrir un Pull Request
 
-**Departures, imp**
+## 📄 Licencia
 
-**Luego ir a folios, clic DESK FOLIOS luego OPEN Y FOLIO LIST E IMPRIMIR**
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
 
-**Imprimir un in house para el restaurante y colocarle la cantidad de persona que hay en cada habitación.**
+## 📞 Soporte
 
-**,**
+Para soporte técnico o consultas:
+- **Repository**: [GitHub](https://github.com/EnmanuelReynoso23/Sistema-de-auditoria-nocturna)
+- **Issues**: Reportar problemas en GitHub Issues
+
+## 🔄 Changelog
+
+### v1.0.0
+- Implementación inicial del sistema completo
+- Sistema de facturas con auto-numeración
+- Almacenamiento persistente con LocalStorage
+- Temporizador crítico para cierre del Verifón
+- Resúmenes automáticos por categorías y turnos
+- Interfaz responsiva con Tailwind CSS
+
+---
+
+**Sistema de Auditoría Nocturna** - Desarrollado para optimizar procesos hoteleros con tecnología moderna y confiable.
