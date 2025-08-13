@@ -1,4 +1,4 @@
-# Sistema de Auditoría Nocturna
+![1754958594010](image/README/1754958594010.png)![1754958595198](image/README/1754958595198.png)![1754958597161](image/README/1754958597161.png)# Sistema de Auditoría Nocturna
 
 Una aplicación web completa para la gestión y seguimiento del proceso de auditoría nocturna en hoteles, desarrollada con React, TypeScript y Tailwind CSS.
 

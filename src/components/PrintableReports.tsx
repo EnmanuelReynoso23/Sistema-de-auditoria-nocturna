@@ -1,5 +1,5 @@
 import React from 'react';
-import { Printer, FileText, Calculator, Users, Building, Clock } from 'lucide-react';
+import { Printer, FileText, Users, Building } from 'lucide-react';
 
 interface Invoice {
   id: string;
@@ -23,13 +23,11 @@ interface AuditStep {
 interface PrintableReportsProps {
   invoices: Invoice[];
   auditSteps: AuditStep[];
-  calculations: any;
 }
 
 export const PrintableReports: React.FC<PrintableReportsProps> = ({ 
   invoices, 
-  auditSteps, 
-  calculations 
+  auditSteps
 }) => {
   const printReport = (reportType: string) => {
     const printWindow = window.open('', '_blank');
@@ -38,6 +36,7 @@ export const PrintableReports: React.FC<PrintableReportsProps> = ({
     let content = '';
     const currentDate = new Date().toLocaleDateString();
     const currentTime = new Date().toLocaleTimeString();
+    const completedSteps = auditSteps.filter(step => step.completed).length;
 
     const headerStyle = `
       <style>
@@ -55,7 +54,7 @@ export const PrintableReports: React.FC<PrintableReportsProps> = ({
     `;
 
     switch (reportType) {
-      case 'restaurant-invoices':
+      case 'restaurant-invoices': {
         content = `
           ${headerStyle}
           <div class="header">
@@ -120,9 +119,9 @@ export const PrintableReports: React.FC<PrintableReportsProps> = ({
           </div>
         `;
         break;
+      }
 
-      case 'audit-checklist':
-        const completedSteps = auditSteps.filter(step => step.completed).length;
+      case 'audit-checklist': {
         content = `
           ${headerStyle}
           <div class="header">
@@ -163,8 +162,9 @@ export const PrintableReports: React.FC<PrintableReportsProps> = ({
           </div>
         `;
         break;
+      }
 
-      case 'daily-summary':
+      case 'daily-summary': {
         content = `
           ${headerStyle}
           <div class="header">
@@ -203,6 +203,7 @@ export const PrintableReports: React.FC<PrintableReportsProps> = ({
           </div>
         `;
         break;
+      }
     }
 
     printWindow.document.write(`

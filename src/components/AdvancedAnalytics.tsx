@@ -1,5 +1,5 @@
 import React from 'react';
-import { BarChart3, TrendingUp, PieChart, Calendar, DollarSign, Clock } from 'lucide-react';
+import { BarChart3, TrendingUp, PieChart, DollarSign, Clock } from 'lucide-react';
 
 interface Invoice {
   id: string;

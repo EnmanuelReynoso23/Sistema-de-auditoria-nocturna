@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Check, Clock, FileText, CreditCard, Calculator, Printer, CheckCircle, Plus, Trash2 } from 'lucide-react';
+import { Check, Clock, FileText, CreditCard, Calculator, Printer, CheckCircle, Plus, Trash2, Shield } from 'lucide-react';
+import { FloatingWindow } from './components/FloatingWindow';
+import { NotificationSystem, useNotifications } from './components/NotificationSystem';
+import { DataValidation } from './components/DataValidation';
+import { QuickBreakdown } from './components/QuickBreakdown';
 
 interface Step {
   id: number;
@@ -22,8 +26,18 @@ interface Invoice {
 }
 
 const AuditGuideApp = () => {
-  const [activeTab, setActiveTab] = useState<'preparation' | 'checkout' | 'checkin' | 'breakdown' | 'reports' | 'invoices' | 'timer'>('preparation');
+  const [activeTab, setActiveTab] = useState<'preparation' | 'checkout' | 'checkin' | 'breakdown' | 'reports' | 'invoices' | 'timer' | 'validation'>('preparation');
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [notificationSent, setNotificationSent] = useState(false);
+  
+  // Hook de notificaciones
+  const {
+    notifications,
+    dismissNotification,
+    clearAllNotifications,
+    notifyDeadlineWarning,
+    addNotification
+  } = useNotifications();
   
   // Cargar facturas desde localStorage al iniciar
   const [invoices, setInvoices] = useState<Invoice[]>(() => {
@@ -66,6 +80,50 @@ const AuditGuideApp = () => {
       setCurrentTime(new Date());
     }, 1000);
     return () => clearInterval(timer);
+  }, []);
+
+  // Hook para notificar 10 minutos antes del cierre del Verifón
+  useEffect(() => {
+    const now = new Date();
+    const deadline = new Date();
+    deadline.setHours(23, 55, 0, 0); // 11:55 PM
+    
+    // Si ya pasó la hora, configurar para el siguiente día
+    if (now > deadline) {
+      deadline.setDate(deadline.getDate() + 1);
+    }
+    
+    const tenMinutesBefore = new Date(deadline.getTime() - (10 * 60 * 1000)); // 10 minutos antes (11:45 PM)
+    
+    // Verificar si estamos dentro de los 10 minutos y no hemos enviado la notificación
+    if (now >= tenMinutesBefore && now < deadline && !notificationSent) {
+      const minutesLeft = Math.ceil((deadline.getTime() - now.getTime()) / (1000 * 60));
+      
+      // Solicitar permisos de notificación si no están concedidos
+      if (Notification.permission === 'default') {
+        Notification.requestPermission().then(permission => {
+          if (permission === 'granted') {
+            notifyDeadlineWarning(minutesLeft);
+            setNotificationSent(true);
+          }
+        });
+      } else if (Notification.permission === 'granted') {
+        notifyDeadlineWarning(minutesLeft);
+        setNotificationSent(true);
+      }
+    }
+    
+    // Resetear la notificación al pasar el deadline para el próximo día
+    if (now > deadline && notificationSent) {
+      setNotificationSent(false);
+    }
+  }, [currentTime, notificationSent, notifyDeadlineWarning]);
+
+  // Solicitar permisos de notificación al cargar la aplicación
+  useEffect(() => {
+    if (Notification.permission === 'default') {
+      Notification.requestPermission();
+    }
   }, []);
 
   // Guardar facturas en localStorage cuando cambien
@@ -481,6 +539,17 @@ const AuditGuideApp = () => {
     
     return (
       <div className="space-y-6">
+        {/* Quick Breakdown Component for breakdown category */}
+        {category === 'breakdown' && (
+          <QuickBreakdown
+            onNotify={(type, title, message) => addNotification({
+              type,
+              title,
+              message
+            })}
+          />
+        )}
+
         {/* Category Header */}
         <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
           <div className="flex items-center justify-between mb-4">
@@ -582,13 +651,21 @@ const AuditGuideApp = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <FloatingWindow>
+      <div className="min-h-screen bg-gray-900 text-white">
       {/* Header */}
       <div className="bg-gray-800 border-b border-gray-700 p-4">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-2xl font-bold text-white mb-2">
-            Sistema de Auditoría Nocturna
-          </h1>
+          <div className="flex items-center justify-between mb-2">
+            <h1 className="text-2xl font-bold text-white">
+              Sistema de Auditoría Nocturna
+            </h1>
+            <NotificationSystem
+              notifications={notifications}
+              onDismiss={dismissNotification}
+              onClearAll={clearAllNotifications}
+            />
+          </div>
           <div className="flex items-center justify-between text-sm">
             <div className="text-gray-300">
               Hora: {getCurrentTime()}
@@ -679,6 +756,16 @@ const AuditGuideApp = () => {
               }`}
             >
               ⏰ Temporizador
+            </button>
+            <button
+              onClick={() => setActiveTab('validation')}
+              className={`px-4 py-3 font-medium rounded-t-lg transition-colors whitespace-nowrap ${
+                activeTab === 'validation'
+                  ? 'bg-gray-900 text-white border-t border-l border-r border-gray-600'
+                  : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+              }`}
+            >
+              <Shield className="w-4 h-4 inline mr-1" /> Validación
             </button>
           </div>
         </div>
@@ -950,6 +1037,15 @@ const AuditGuideApp = () => {
           </div>
         )}
 
+        {activeTab === 'validation' && (
+          <DataValidation
+            invoices={invoices}
+            steps={steps}
+            currentTime={currentTime}
+          />
+        )}
+
+
         {completedSteps === totalSteps && (
           <div className="mt-6 bg-green-800 border border-green-600 text-green-100 px-4 py-3 rounded-lg text-center">
             <h2 className="text-xl font-bold mb-2">¡Auditoría Completada!</h2>
@@ -958,6 +1054,7 @@ const AuditGuideApp = () => {
         )}
       </div>
     </div>
+    </FloatingWindow>
   );
 };
 
