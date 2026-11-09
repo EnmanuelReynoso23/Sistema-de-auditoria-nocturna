@@ -7,13 +7,13 @@ Una aplicación web completa para la gestión y seguimiento del proceso de audit
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.6.2-3178C6?logo=typescript)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.14-38B2AC?logo=tailwind-css)
 
-## 📋 Descripción
+## Descripción
 
 El Sistema de Auditoría Nocturna es una herramienta digital diseñada para optimizar y estandarizar el proceso de auditoría en establecimientos hoteleros. La aplicación guía paso a paso a través de todos los procedimientos necesarios, desde la preparación inicial hasta la generación de reportes finales.
 
-## ✨ Características Principales
+## Características Principales
 
-### 🎯 Gestión Completa del Proceso
+### Gestión Completa del Proceso
 
 - **Preparación inicial** con temporizador crítico para el cierre del Verifón
 - **Verificación de check-outs** con validación de pagos y facturas
@@ -21,34 +21,34 @@ El Sistema de Auditoría Nocturna es una herramienta digital diseñada para opti
 - **Desgloses automatizados** de ventas por categorías y turnos
 - **Generación de reportes** para contabilidad y ama de llaves
 
-### 💾 Almacenamiento Persistente
+### Almacenamiento Persistente
 
 - **LocalStorage integrado** para mantener datos entre sesiones
 - **Auto-numeración** progresiva de facturas (Factura 1, 2, 3...)
 - **Recuperación automática** de datos al reiniciar la aplicación
 - **Funcionalidad de limpieza** con confirmación de seguridad
 
-### 📊 Sistema de Facturas Avanzado
+### Sistema de Facturas Avanzado
 
 - **Categorización automática**: Comida, Bebidas, Tienda
 - **Separación por turnos**: Día (7/3) y Noche (3/11)
 - **Tipos de pago**: Efectivo y Tarjeta de Crédito
 - **Resúmenes en tiempo real** con totales por categoría
 
-### ⏰ Temporizador Crítico
+### Temporizador Crítico
 
 - **Countdown en tiempo real** hasta el cierre del Verifón (11:55 PM)
 - **Alertas urgentes** cuando quedan menos de 30 minutos
 - **Visualización clara** de horas, minutos y segundos restantes
 
-### 📈 Seguimiento de Progreso
+### Seguimiento de Progreso
 
 - **Barra de progreso** general del proceso de auditoría
 - **Progreso por categorías** con porcentajes individuales
 - **Marcado de pasos completados** con confirmación visual
 - **Estado visual** diferenciado para tareas pendientes y completadas
 
-## 🚀 Instalación y Configuración
+## Instalación y Configuración
 
 ### Requisitos Previos
 
@@ -81,19 +81,19 @@ npm run build
 npm run preview
 ```
 
-## 📱 Uso de la Aplicación
+## Uso de la Aplicación
 
 ### Navegación Principal
 
 La aplicación está organizada en pestañas principales:
 
-1. **📋 Preparación** - Configuración inicial y cierre del Verifón
-2. **✅ Check-Outs** - Verificación de salidas y pagos
-3. **🏨 Check-Ins** - Procesamiento de entradas
-4. **📊 Desgloses & Folios** - Creación de folios y cálculos
-5. **🧾 Facturas** - Gestión de facturas con auto-numeración
-6. **🖨️ Reportes** - Generación de documentos finales
-7. **⏰ Temporizador** - Control de tiempo crítico
+1. **Preparación** - Configuración inicial y cierre del Verifón
+2. **Check-Outs** - Verificación de salidas y pagos
+3. **Check-Ins** - Procesamiento de entradas
+4. **Desgloses & Folios** - Creación de folios y cálculos
+5. **Facturas** - Gestión de facturas con auto-numeración
+6. **Reportes** - Generación de documentos finales
+7. **Temporizador** - Control de tiempo crítico
 
 ### Gestión de Facturas
 
@@ -112,7 +112,7 @@ La aplicación está organizada en pestañas principales:
 - **Cálculos en tiempo real** que se actualizan automáticamente
 - **Desglose detallado** para facilitar el proceso de auditoría
 
-## 🛠️ Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 ### Frontend
 
@@ -128,7 +128,7 @@ La aplicación está organizada en pestañas principales:
 - **PostCSS** - Procesamiento de CSS
 - **Autoprefixer** - Prefijos automáticos de CSS
 
-## 🏗️ Estructura del Proyecto
+## Estructura del Proyecto
 
 ```text
 src/
@@ -142,7 +142,7 @@ src/
 └── vite-env.d.ts       # Definiciones de tipos para Vite
 ```
 
-## 📋 Proceso de Auditoría Detallado
+## Proceso de Auditoría Detallado
 
 ### Fase 1: Preparación
 
@@ -176,7 +176,7 @@ src/
 - Impresión de reportes para ama de llaves
 - Organización final de documentación
 
-## 🔧 Configuración Personalizada
+## Configuración Personalizada
 
 ### Variables de Entorno
 
@@ -191,7 +191,7 @@ VITE_DEADLINE_MINUTE=55
 
 El temporizador está configurado para el cierre a las 11:55 PM, pero puede modificarse en el código según las necesidades del establecimiento.
 
-## 🤝 Contribución
+## Contribución
 
 Las contribuciones son bienvenidas. Para contribuir:
 
@@ -201,18 +201,18 @@ Las contribuciones son bienvenidas. Para contribuir:
 4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
 5. Abrir un Pull Request
 
-## 📄 Licencia
+## Licencia
 
 Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
 
-## 📞 Soporte
+## Soporte
 
 Para soporte técnico o consultas:
 
 - **Repository**: [GitHub](https://github.com/EnmanuelReynoso23/Sistema-de-auditoria-nocturna)
 - **Issues**: Reportar problemas en GitHub Issues
 
-## 🔄 Changelog
+## Changelog
 
 ### v1.0.0
 
